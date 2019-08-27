@@ -81,7 +81,7 @@ while(z<2){
 				h++;
 		}
 		
-		if(h==3)
+		if(h==size)
 			won(c);
 		h=0;
 	}
@@ -94,7 +94,7 @@ while(z<2){
 				v++;
 		}
 		
-		if(v==3)
+		if(v==size)
 			won(c);
 		v=0;
 	}		
