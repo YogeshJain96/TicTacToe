@@ -1,9 +1,9 @@
 // Tic Tac Toe
 #include<iostream>
 using namespace std;
-#define size 3
+#define size 4 //set size
 //or can be defined as
-//const int size=3;
+//const int size=n;
 
 char ar[size][size];
 int count=0;
@@ -14,7 +14,19 @@ void initMatrix(){
                 }
               }
 }
+void printMap(){
+	int m=1;
+	cout<<"\n";
+	for(int i=0;i<size;i++){
+		for(int j=0;j<size;j++)
+			cout<<"["<<m++<<"]\t";
+	cout<<"\n";
+	}
+	cout<<endl;
+
+}
 void dispMatrix(){
+	printMap();
 	for(int i=0;i<size;i++){
                 for(int j=0;j<size;j++){
                		cout<<ar[i][j]<<"\t";
@@ -120,18 +132,6 @@ z++;
 }
 }
 
-void printMap(){
-	int m=1;
-	cout<<"\n";
-	for(int i=0;i<size;i++){
-		for(int j=0;j<size;j++)
-			cout<<"["<<m++<<"]\t";
-	cout<<"\n";
-	}
-	cout<<endl;
-
-}
-
 int main(){
 	//for n*n Matrix
 	cout<<"Welcome to TicTacToev1.0 \n";
@@ -178,8 +178,7 @@ int main(){
 			p--;			
 		}
 		else if(validMatrix(location))
-                        editMatrix(location,'O');
-		                
+                        editMatrix(location,'O');                
 		else{
                         count--;
                         p--;
