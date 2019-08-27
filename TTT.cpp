@@ -153,14 +153,20 @@ int main(){
 		else{
 			count--;
 			p--;
-			cout<<"Enter Unoccupied Location!!"
+			cout<<"Enter Unoccupied Location!!\n";
 		}
 	}
 	else{
 		p++;
 		cout<<"Player O's turn"<<endl;
 		cin>>location;
-		editMatrix(location,'O');
+		if(validMatrix(location))
+			editMatrix(location,'O');
+		else{
+			count--;
+			p--;
+			cout<<"Enter Unoccupied Location!!\n";
+		}
 	}
 	count++;
 	checkMatrix();	
