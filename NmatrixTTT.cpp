@@ -104,13 +104,13 @@ while(z<2){
 		for(int i=0;i<size;i++)		
 			if(ar[i][i]==c)
 				ld++;
-		if(ld==3)
+		if(ld==size)
 			won(c);
 	int rd=0;
 		for(int i=0,j=size-1;i<size;i++,j--)		
 			if(ar[i][j]==c)
 				rd++;
-		if(rd==3)
+		if(rd==size)
 			won(c);
 
 	   
