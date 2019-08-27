@@ -64,9 +64,11 @@ void checkMatrix(){
 int z=0;
 char c='X';
 	//Draw Condition
-	if(count==9){
-		cout<<"Draw\n\n";
-		exit(0);}
+	if(count==(size*size)){
+		cout<<"Match Draw\n\n";
+		dispMatrix();
+		exit(0);
+	}
 while(z<2){	
 	if(z%2==0)
 		c='X';
@@ -131,8 +133,8 @@ void printMap(){
 }
 
 int main(){
-	//for 3*3 Matrix
-	cout<<"Welcome to TTTv1.0 \n";
+	//for n*n Matrix
+	cout<<"Welcome to TicTacToev1.0 \n";
 
 	int p=0;// Player's Turn
 	int location=0;// Matrix Location
@@ -149,24 +151,24 @@ int main(){
 		p++;
 		cout<<"Player X's turn:"<<endl;
 		cin>>location;
-		if(validMatrix(location))
+		if(validMatrix(location) && location=>1 && location<=9)
 			editMatrix(location,'X');
 		else{
 			count--;
 			p--;
-			cout<<"Enter Unoccupied Location!!\n";
+			cout<<"Enter Unoccupied Valid Location!!\n";
 		}
 	}
 	else{
 		p++;
 		cout<<"Player O's turn"<<endl;
 		cin>>location;
-		if(validMatrix(location))
+		if(validMatrix(location)  && location=>1 && location<=9)
                         editMatrix(location,'O');
                 else{
                         count--;
                         p--;
-                        cout<<"Enter Unoccupied Location!!\n";
+                        cout<<"Enter Unoccupied Valid Location!!\n";
                 }
 
 	}
