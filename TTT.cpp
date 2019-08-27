@@ -19,6 +19,36 @@ void dispMatrix(){
                 cout<<"\n\n";
         }
 }
+int validMatrix(int l){
+	int i=0; //Checking Availablity
+	
+	if(l==1 && ar[0][0]=='_')
+		i=1;
+	else if(l==2 && ar[0][1]=='_')
+		i=1;
+	else if(l==3 && ar[0][2]=='_')
+		i=1;
+	else if(l==4 && ar[1][0]=='_')
+		i=1;
+	else if(l==5 && ar[1][1]=='_')
+		i=1;
+	else if(l==6 && ar[1][2]=='_')
+		i=1;
+	else if(l==7 && ar[2][0]=='_')
+		i=1;
+	else if(l==8 && ar[2][1]=='_')
+		i=1;
+	else if(l==9 && ar[2][2]=='_')
+		i=1;
+	else i=0;
+	
+	//---------------------------------
+
+	if(i==1)
+		return true;
+	else
+		return false;
+}
 void editMatrix(int location,char x){
         if(location==1)
                 ar[0][0]=x;
@@ -118,7 +148,13 @@ int main(){
 		p++;
 		cout<<"Player X's turn:"<<endl;
 		cin>>location;
-		editMatrix(location,'X');
+		if(validMatrix(location))
+			editMatrix(location,'X');
+		else{
+			count--;
+			p--;
+			cout<<"Enter Unoccupied Location!!"
+		}
 	}
 	else{
 		p++;
