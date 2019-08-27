@@ -35,30 +35,6 @@ int validMatrix(int l){
 		}
 	}
 
-//--------------------------------------------
-/*
-	if(l==1 && ar[0][0]=='_')
-		i=1;
-	else if(l==2 && ar[0][1]=='_')
-		i=1;
-	else if(l==3 && ar[0][2]=='_')
-		i=1;
-	else if(l==4 && ar[1][0]=='_')
-		i=1;
-	else if(l==5 && ar[1][1]=='_')
-		i=1;
-	else if(l==6 && ar[1][2]=='_')
-		i=1;
-	else if(l==7 && ar[2][0]=='_')
-		i=1;
-	else if(l==8 && ar[2][1]=='_')
-		i=1;
-	else if(l==9 && ar[2][2]=='_')
-		i=1;
-	else i=0;
-*/	
-	//---------------------------------
-
 	if(i==1)
 		return true;
 	else
@@ -75,29 +51,7 @@ void editMatrix(int location,char x){
 			loc++;
 		}
 	}
-//---------------------------------------------
-/*   	if(location==1)
-                ar[0][0]=x;
-	else if(location==2)
-		 ar[0][1]=x;
-	else if(location==3)
-                 ar[0][2]=x;
-	else if(location==4)
-                 ar[1][0]=x;
-	else if(location==5)
-                 ar[1][1]=x;
-	else if(location==6)
-                 ar[1][2]=x;
-	else if(location==7)
-                 ar[2][0]=x;
-	else if(location==8)
-                 ar[2][1]=x;
-	else if(location==9)
-                 ar[2][2]=x;
-	else
-		cout<<"Enter Valid Location!";
-		
-*/
+
 }
 void won(char p){
 	cout<<"Player "<<p<<" Won!!\n";
@@ -106,133 +60,41 @@ void won(char p){
 }
 
 void checkMatrix(){
-/*//Generalising Winning condition for size*size Matrix
-int z=1;
-char x;	
-while(z<2){
+//Generalising Winning condition for size*size Matrix
+int z=0;
+char c='X';
+	//Draw Condition
+	if(count==9){
+		cout<<"Draw\n\n";
+		exit(0);}
+while(z<2){	
 	if(z%2==0)
-		x='X';
+		c='X';
 	else
-		x='O';
-
-x='X';	
-
-	int w1=0;
+		c='O';
 	
-	//Right Diagonal
-	for(int i=0,j=size-1;i<size;i++,j--){
-		if(ar[i][j]=='X')
-			w1=1;
-		else
-			w1=0;
-	}
-	if(w1==1)
-		won('X');	
-
-
-	//Left Diagonal
-	for(int i=0;i<size;i++){
-		if(ar[i][i]=='X')
-			w1=1;
-		else
-			w1=0;
-	}
-
-	if(w1==1)
-		won('X');	
-
-
-
 	//Horizon
-	int h1=0;
-	for(int i=0;i<size;i++){
-		for(int j=0;j<size;j++){
-			if(ar[h1][j]=='X')
-				w1=1;
-			else
-				w1=0;
-			}
-		if(w1==1)
-			won('X');
-		h1++;
+	
+	for(int i=0,j=0;i<size;i++){
+		if(ar[i][j]==c && ar[i][++j]==c && ar[i][++j]==c)
+			won(c);
+	j=0;
 	}
 	
-
 	//Vertical
-	int v1=0;
-	for(int i=0;i<size;i++){
-		for(int j=0;j<size;j++){
-			if(ar[j][v1]=='X')
-				w1=1;
-			else
-				w1=0;
-			}
-		if(w1==1)
-			won('X');
-		v1++;
+	for(int i=0,j=0;i<size;i++){
+		if(ar[j][i]==c && ar[++j][i]==c && ar[++j][i]==c)
+			won(c);
+	j=0;
 	}
-	
-//z++;
-//}
 
-if(count==(size*size)){
-	cout<<"Draw\n\n";
-	exit(0);
-	}
-*/
-//8WaystoWin 3Horiz 3Vert 2Diagon
-
-/*00--01--02
- *10--11--12
- *20--21--22*/
-	
-	//3Horizon
-		if(ar[0][0]=='X' && ar[0][1]=='X' && ar[0][2]=='X')
-			won('X');
-		else if(ar[1][0]=='X' && ar[1][1]=='X' && ar[1][2]=='X')
-			won('X');
-		else if(ar[2][0]=='X' && ar[1][1]=='X' && ar[2][2]=='X')
-			won('X');
-	//3Verti
-		else if(ar[0][0]=='X' && ar[1][0]=='X' && ar[2][0]=='X')
-			won('X');
-		else if(ar[0][1]=='X' && ar[1][1]=='X' && ar[2][1]=='X')
-			won('X');
-		else if(ar[0][2]=='X' && ar[1][2]=='X' && ar[2][2]=='X')
-			won('X');
 	//2 Diagon
-		else if(ar[0][0]=='X' && ar[1][1]=='X' && ar[2][2]=='X')
-			won('X');
-		else if(ar[0][2]=='X' && ar[1][1]=='X' && ar[2][0]=='X')
-			won('X');
-
-//------------------------------------------------------------------------------------
-	//3Horizon
-		if(ar[0][0]=='O' && ar[0][1]=='O' && ar[0][2]=='O')
-			won('O');
-		else if(ar[1][0]=='O' && ar[1][1]=='O' && ar[1][2]=='O')
-			won('O');
-		else if(ar[2][0]=='O' && ar[1][1]=='O' && ar[2][2]=='O')
-			won('O');
-	//3Verti
-		else if(ar[0][0]=='O' && ar[1][0]=='O' && ar[2][0]=='O')
-			won('O');
-		else if(ar[0][1]=='O' && ar[1][1]=='O' && ar[2][1]=='O')
-			won('O');
-		else if(ar[0][2]=='O' && ar[1][2]=='O' && ar[2][2]=='O')
-			won('O');
-	//2 Diagon
-		else if(ar[0][0]=='O' && ar[1][1]=='O' && ar[2][2]=='O')
-			won('O');
-		else if(ar[0][2]=='O' && ar[1][1]=='O' && ar[2][0]=='O')
-			won('O');
-		else if(count==9){
-			cout<<"Draw\n\n";
-			exit(0);}
-		else 
-			;
-
-
+		if(ar[0][0]==c && ar[1][1]==c && ar[2][2]==c)
+			won(c);
+		else if(ar[0][2]==c && ar[1][1]==c && ar[2][0]==c)
+			won(c);
+z++;
+}
 }
 
 void printMap(){
