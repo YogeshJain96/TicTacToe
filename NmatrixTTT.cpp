@@ -65,8 +65,8 @@ int z=0;
 char c='X';
 	//Draw Condition
 	if(count==(size*size)){
-		cout<<"Match Draw\n\n";
 		dispMatrix();
+		cout<<"Match Draw\n\n";
 		exit(0);
 	}
 while(z<2){	
@@ -151,24 +151,39 @@ int main(){
 		p++;
 		cout<<"Player X's turn:"<<endl;
 		cin>>location;
-		if(validMatrix(location) && location>=1 && location<=9)
+		if(cin.fail()){
+			cin.clear();
+			cin.ignore();
+			cout << "Enter Valid Input" << endl;
+			count--;
+			p--;				
+		}
+		else if(validMatrix(location))
 			editMatrix(location,'X');
 		else{
 			count--;
 			p--;
-			cout<<"Enter Unoccupied Valid Location!!\n";
+			cout<<"Enter Unoccupied Location!!\n";
 		}
 	}
 	else{
 		p++;
 		cout<<"Player O's turn"<<endl;
 		cin>>location;
-		if(validMatrix(location)  && location>=1 && location<=9)
+		if(cin.fail()){
+			cin.clear();
+			cin.ignore();
+			cout << "Enter Valid Input" << endl;
+			count--;
+			p--;			
+		}
+		else if(validMatrix(location))
                         editMatrix(location,'O');
-                else{
+		                
+		else{
                         count--;
                         p--;
-                        cout<<"Enter Unoccupied Valid Location!!\n";
+                        cout<<"Enter Unoccupied Location!!\n";
                 }
 
 	}
