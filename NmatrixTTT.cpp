@@ -54,8 +54,8 @@ void editMatrix(int location,char x){
 
 }
 void won(char p){
-	cout<<"Player "<<p<<" Won!!\n";
 	dispMatrix();
+	cout<<"Player "<<p<<" Won!!\n";
 	exit(0);
 }
 
@@ -151,7 +151,7 @@ int main(){
 		p++;
 		cout<<"Player X's turn:"<<endl;
 		cin>>location;
-		if(validMatrix(location) && location=>1 && location<=9)
+		if(validMatrix(location) && location>=1 && location<=9)
 			editMatrix(location,'X');
 		else{
 			count--;
@@ -163,7 +163,7 @@ int main(){
 		p++;
 		cout<<"Player O's turn"<<endl;
 		cin>>location;
-		if(validMatrix(location)  && location=>1 && location<=9)
+		if(validMatrix(location)  && location>=1 && location<=9)
                         editMatrix(location,'O');
                 else{
                         count--;
