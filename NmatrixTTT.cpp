@@ -92,7 +92,7 @@ while(z<2){
 	int v=0;
 	for(int i=0,j=0;i<size;i++,j++){
 		for(int j=0;j<size;j++){		
-			if(ar[i][j]==c)
+			if(ar[j][i]==c)
 				v++;
 		}
 		
